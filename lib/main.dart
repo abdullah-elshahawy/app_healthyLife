@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/faceScreen.dart';
 import 'package:untitled/hairScreen.dart';
+import 'package:untitled/heartScreen.dart';
 import 'package:untitled/homeScreen.dart';
 import 'package:untitled/teethScreen.dart';
 
@@ -34,23 +36,52 @@ class MyApp extends StatelessWidget {
             //  crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                  child: HomeScreen(
-                      "assets/images/img.png", "details", HairScreen.routName)),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: HomeScreen("assets/images/img.png", "details",
+                          HairScreen.routeName),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: HomeScreen("assets/images/heart1.png", "details",
+                          HeartScreen.routeName),
+                    ),
+                  ],
+                ),
+              ),
               Divider(
                 color: Colors.brown,
                 thickness: 5,
                 height: 12,
               ),
               Expanded(
-                child: HomeScreen("assets/images/images.jpeg", "details",
-                    TeethScreen.routName),
-              )
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: HomeScreen("assets/images/images.jpeg", "details",
+                          TeethtScreen.routeName),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: HomeScreen("assets/images/face1.png", "details",
+                          FaceScreen.routeName),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
         routes: {
-          HairScreen.routName: (_) => HairScreen(),
-          TeethScreen.routName: (_) => TeethScreen(),
+          HairScreen.routeName: (_) => HairScreen(),
+          TeethtScreen.routeName: (_) => TeethtScreen(),
+          HeartScreen.routeName: (_) => HeartScreen(),
+          FaceScreen.routeName: (_) => FaceScreen(),
         });
   }
 }
